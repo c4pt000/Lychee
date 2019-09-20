@@ -1,3 +1,9 @@
+
+apt install php-mysql php-mbstring php-gd php-zip imagemagick php-imagick
+
+
+mysql_secure_installation
+
 # Lychee
 
 #### A great looking and easy-to-use photo-management-system.
