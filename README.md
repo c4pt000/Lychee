@@ -72,3 +72,33 @@ Here's a list of all available Plugins and Extensions:
 ## Troubleshooting
 
 Take a look at the [FAQ](docs/FAQ.md) if you have problems. Discovered a bug? Please create an issue here on GitHub!
+
+* database connection errors,
+
+https://www.linuxbabe.com/mariadb/plugin-unix_socket-is-not-loaded-2
+
+sudo mysqld_safe --skip-grant-tables &
+Next, log into MariaDB monitor as root.
+
+mysql -u root
+Enter the following SQL statement to check which authentication plugin is used for root.
+
+MariaDB [(none)]> select Host,User,plugin from mysql.user where User='root';
+Plugin 'unix_socket' is not loaded
+
+You might see it’s using unix_socket plugin. To change it to mysql_native_password plugin, execute this command:
+
+MariaDB [(none)]> update mysql.user set plugin='mysql_native_password';
+
+
+flush privileges;
+quit;
+Stop mysqld_safe
+
+sudo kill -9 $(pgrep mysql)
+Start MariaDB again.
+
+sudo systemctl start mysql     or   sudo systemctl start mariadb
+Now you can use normal password to login.
+
+mysql -u root -p
