@@ -86,7 +86,7 @@ see https://www.php.net/manual/en/function.set-time-limit.php
 
 * /var/www/html/php/Modules/Photo.php
 
-bug presents itself via loading as a PHP fatal error
+bug presents itself via loading (large albums) as a PHP fatal error
 
 PHP Fatal error:  Maximum execution time of 200 seconds exceeded in /var/www/html/php/Modules/Photo.php on line 489, referer: 
 
