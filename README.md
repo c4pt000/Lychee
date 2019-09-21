@@ -79,6 +79,24 @@ Here's a list of all available Plugins and Extensions:
 
 Take a look at the [FAQ](docs/FAQ.md) if you have problems. Discovered a bug? Please create an issue here on GitHub!
 
+
+* added fix for large album support affecting php max execution time           line 45
+
+see https://www.php.net/manual/en/function.set-time-limit.php
+
+* /var/www/html/php/Modules/Photo.php
+
+bug presents itself via loading as a PHP fatal error
+
+PHP Fatal error:  Maximum execution time of 200 seconds exceeded in /var/www/html/php/Modules/Photo.php on line 489, referer: 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 * database connection errors,
 
 https://www.linuxbabe.com/mariadb/plugin-unix_socket-is-not-loaded-2
